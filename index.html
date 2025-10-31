@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connexion - Budget Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="login-container">
+      <div class="login-box">
+        <div class="logo">
+          <i class="fas fa-chart-pie"></i>
+          <h1>Budget Tracker</h1>
+        </div>
+
+        <h2>Connexion</h2>
+
+        <form id="loginForm">
+          <div class="input-group">
+            <label for="loginEmail">Email :</label>
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="Entrez votre email"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="loginPassword">Mot de passe :</label>
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="Entrez votre mot de passe"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Se connecter</button>
+        </form>
+
+        <p class="switch-text">
+          Pas encore de compte ? <a href="register.html">Créer un compte</a>
+        </p>
+
+        <p id="loginMessage" class="message"></p>
+      </div>
+    </div>
+
+    <script src="login.js"></script>
+  </body>
+</html>

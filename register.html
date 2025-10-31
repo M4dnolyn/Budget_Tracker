@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Créer un compte - Budget Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="register-container">
+      <div class="register-box">
+        <div class="logo">
+          <i class="fas fa-chart-pie"></i>
+          <h1>Budget Tracker</h1>
+        </div>
+
+        <h2>Créer un compte</h2>
+
+        <form id="registerForm">
+          <div class="input-group">
+            <label for="registerEmail">Email :</label>
+            <input
+              type="email"
+              id="registerEmail"
+              placeholder="Entrez votre email"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="registerPassword">Mot de passe :</label>
+            <input
+              type="password"
+              id="registerPassword"
+              placeholder="Choisissez un mot de passe"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="confirmPassword">Confirmer le mot de passe :</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirmez votre mot de passe"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Créer mon compte
+          </button>
+        </form>
+
+        <p class="switch-text">
+          Déjà inscrit ? <a href="index.html">Connectez-vous ici</a>
+        </p>
+        <p><a href="home.html" class="link-back">← Retour à l'accueil</a></p>
+
+        <p id="registerMessage" class="message"></p>
+      </div>
+    </div>
+
+    <script src="register.js"></script>
+  </body>
+</html>
