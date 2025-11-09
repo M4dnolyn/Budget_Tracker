@@ -1,14 +1,12 @@
-// =============================
-// 🔐 Vérification de connexion
-// =============================
+//  Vérification de connexion
+
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 if (!currentUser) {
   window.location.href = "index.html";
 }
 
-// =============================
-// 🔄 Sélection des éléments
-// =============================
+//  Sélection des éléments
+
 const expenseTableBody = document.querySelector("#expense-table tbody");
 const totalDisplay = document.getElementById("total");
 const clearAllBtn = document.getElementById("clearAll");
@@ -18,15 +16,13 @@ const categoryFilter = document.getElementById("filter-category");
 const dateFilter = document.getElementById("filter-date");
 const addBtn = document.getElementById("addExpenseBtn");
 
-// =============================
-// 💾 Gestion des données utilisateur
-// =============================
+//  Gestion des données utilisateur
+
 let allData = JSON.parse(localStorage.getItem("expensesData")) || {};
 let userExpenses = allData[currentUser.email] || [];
 
-// =============================
-// 📊 Initialisation du graphique
-// =============================
+//  Initialisation du graphique
+
 let chart;
 let chartInitialized = false;
 
@@ -49,6 +45,7 @@ function updateChart() {
   });
 
   // Si aucune catégorie, afficher un graphique vide avec message
+
   if (Object.keys(categories).length === 0) {
     if (chart) chart.destroy();
     chart = new Chart(ctx, {
@@ -118,16 +115,15 @@ function updateChart() {
   });
 }
 
-// =============================
-// 📋 Mise à jour du filtre de catégories
-// =============================
+//  Mise à jour du filtre de catégories
+
 function updateCategoryFilter() {
   if (!categoryFilter) return;
 
   // Récupérer toutes les catégories uniques
   const categories = [...new Set(userExpenses.map((exp) => exp.category))];
 
-  // Sauvegarder la valeur actuelle
+  // Sauvegarder la valeur actuelle ou courante
   const currentValue = categoryFilter.value;
 
   // Vider et remplir le select
@@ -141,14 +137,14 @@ function updateCategoryFilter() {
   });
 
   // Restaurer la valeur sélectionnée si elle existe toujours
+
   if (categories.includes(currentValue)) {
     categoryFilter.value = currentValue;
   }
 }
 
-// =============================
-// 🧮 Affichage du tableau
-// =============================
+//  Affichage du tableau
+
 function renderTable() {
   if (!expenseTableBody) return;
 
@@ -197,9 +193,7 @@ function renderTable() {
   }
 }
 
-// =============================
-// ➕ Ajout d'une dépense
-// =============================
+//  Ajout d'une dépense
 if (addBtn) {
   addBtn.addEventListener("click", () => {
     const name = document.getElementById("expenseName").value.trim();
@@ -242,9 +236,7 @@ if (addBtn) {
   });
 }
 
-// =============================
-// ❌ Suppression et ✏️ Modification d'une dépense
-// =============================
+//  Suppression et  Modification d'une dépense
 if (expenseTableBody) {
   expenseTableBody.addEventListener("click", (e) => {
     // Suppression
@@ -282,9 +274,7 @@ if (expenseTableBody) {
   });
 }
 
-// =============================
-// 🧹 Supprimer toutes les dépenses
-// =============================
+//  Supprimer toutes les dépenses
 if (clearAllBtn) {
   clearAllBtn.addEventListener("click", () => {
     if (confirm("Voulez-vous vraiment tout supprimer ?")) {
@@ -296,16 +286,12 @@ if (clearAllBtn) {
   });
 }
 
-// =============================
-// 🔍 Filtres
-// =============================
+//  Filtres
 [searchInput, categoryFilter, dateFilter].forEach((input) => {
   if (input) input.addEventListener("input", renderTable);
 });
 
-// =============================
-// 📄 Télécharger en PDF
-// =============================
+//  Télécharger en PDF
 const downloadPdfBtn = document.getElementById("download-pdf");
 if (downloadPdfBtn) {
   downloadPdfBtn.addEventListener("click", () => {
@@ -389,9 +375,7 @@ if (downloadPdfBtn) {
   });
 }
 
-// =============================
-// 🚪 Déconnexion
-// =============================
+//  Déconnexion
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("currentUser");
@@ -399,9 +383,7 @@ if (logoutBtn) {
   });
 }
 
-// =============================
-// 🧭 Navigation entre onglets
-// =============================
+//  Navigation entre onglets
 const tabLinks = document.querySelectorAll(".tab-link");
 const sections = document.querySelectorAll(".section");
 
@@ -439,8 +421,6 @@ tabLinks.forEach((btn) => {
   });
 });
 
-// =============================
-// 🚀 Initialisation
-// =============================
+//  Initialisation
 renderTable();
 switchTab("add"); // Démarrer sur l'onglet "Ajouter une dépense"
